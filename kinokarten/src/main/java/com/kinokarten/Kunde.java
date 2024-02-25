@@ -1,7 +1,7 @@
 package com.kinokarten;
-    /**
-     * Bildet einen Kunden ab
-     */
+/**
+ * Bildet einen Kunden ab
+ */
     public class Kunde {
         private int _kundenNummer;
         private Adresse _adresse;
@@ -14,8 +14,8 @@ package com.kinokarten;
          * Erstellt eine neue Instanz von Kunde
          * @param _kundenNummer Die Kundennummer
          * @param _adresse  Die Adresse
-         * @param _alter Das Alter
-         * @param _vorname Der Vorname
+         * @param _alter Das Altrer
+         * @param _vorname Der Vorname 
          * @param _nachname Der Nachname
          */
         public Kunde(int _kundenNummer, Adresse _adresse, int _alter, String _vorname, String _nachname) {
@@ -26,12 +26,7 @@ package com.kinokarten;
             this._nachname = _nachname;
         }
 
-        /**
-         * Reservierung setzen
-         * @param _reservierung Reservierung
-         * @return
-         */
-        public boolean set_reservierung(Reservierung _reservierung){
+        public boolean set_Reservierung(Reservierung _reservierung){
             boolean result = false;
             if(_reservierung != null) {
                 result = true;
