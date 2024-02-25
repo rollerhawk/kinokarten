@@ -25,7 +25,11 @@ package com.kinokarten;
             this._vorname = _vorname;
             this._nachname = _nachname;
         }
-
+            /**
+             * Setzt die Reservierung 
+             * @param _reservierung 
+             * @return Zeigt an ob die Reservierung erfolgreich war.
+             */
         public boolean set_Reservierung(Reservierung _reservierung){
             boolean result = false;
             if(_reservierung != null) {
@@ -34,7 +38,10 @@ package com.kinokarten;
             }            
             return result;
         }
-
+        /**
+         * Erhält die Reservierung 
+         * @return Gibt die Reservierung aus
+         */
         public Reservierung get_Reservierung(){
             return _reservierung;
         }
