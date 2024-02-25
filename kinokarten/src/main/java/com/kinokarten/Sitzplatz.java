@@ -27,6 +27,19 @@ public class Sitzplatz {
     public Reservierung get_reservierung() {
         return _reservierung;
     }  
+
+    public boolean set_reservierung(Reservierung _reservierung){
+        boolean result = false;
+        if(_reservierung != null) {
+            result = true;
+            this._reservierung = _reservierung;
+        }            
+        return result;
+    }
+
+    public void remove_reservierung(){
+        this._reservierung = null;
+    }
     
     public boolean get_isReserviert(){
         return _reservierung != null;
