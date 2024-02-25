@@ -13,9 +13,9 @@ public class Reservierung {
 
     /**
      * 
-     * @param _reservierungsNr
-     * @param _kunde
-     * @param _termin
+     * @param _reservierungsNr Die reservierungs Nummer
+     * @param _kunde Der Kunde
+     * @param _termin Der Termin
      */
 
     public Reservierung(long _reservierungsNr, Kunde _kunde, Termin _termin) {
@@ -27,12 +27,12 @@ public class Reservierung {
          * Zieht sich alle Attribute die die Reservierung benötigt
          */
     }    
-
-    public Saal get_saal(){
-        return this._termin.get_saal();
         /**
          * Erhält den Saal zu dem Termin
          */
+    public Saal get_saal(){
+        return this._termin.get_saal();
+        
     }
  
     public long get_reservierungsNr() {
@@ -42,25 +42,26 @@ public class Reservierung {
          */
     }
 
-    public Kunde get_kunde() {
-        return _kunde;
-        /**
+         /**
          * Erhält den Kunden der reserviert hat
          */
+    public Kunde get_kunde() {
+        return _kunde;
+        
     }
-
-    public List<Sitzplatz> get_sitzplaetze() {
-        return _sitzplaetze;
         /**
          * Erhält eine Liste an Sitzplätzen
          */
+    public List<Sitzplatz> get_sitzplaetze() {
+        return _sitzplaetze;
+        
     }
-
-    public Termin get_termin() {
-        return _termin;
         /**
          * Bekommt den Termin zur Reservierung
          */
+    public Termin get_termin() {
+        return _termin;
+        
     }   
     
 }

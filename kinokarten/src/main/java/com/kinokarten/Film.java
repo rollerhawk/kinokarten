@@ -1,5 +1,7 @@
 package com.kinokarten;
-
+/**
+ * Bildet den Film
+ */
 public class Film {
 
     private Termin _termin;
