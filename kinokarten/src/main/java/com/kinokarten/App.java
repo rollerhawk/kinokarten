@@ -16,6 +16,7 @@ public class App
         Termin _meinTermin;
         _meinTermin = new Termin();
         _meinTermin.set_startUhrzeit(LocalDateTime.now());
+        
 
         Saal _meinSaal;
         Saal _meinSaal2;
