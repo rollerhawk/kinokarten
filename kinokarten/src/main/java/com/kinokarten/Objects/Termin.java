@@ -1,14 +1,29 @@
-package com.kinokarten;
+package com.kinokarten.Objects;
 
 import java.time.LocalDateTime;
 /**
  * Bildet den Termin
  */
-public class Termin {
+public class Termin implements Comparable {
     private Film _film;
     private Saal _saal;
     private LocalDateTime _startUhrzeit;   
     private LocalDateTime _endUhrzeit;
+
+
+    /**
+     * Erstellt eine neue Instanz vom Termin
+     * @param _film Das Film
+     * @param _saal Der Saal
+     * @param _startUhrzeit Die Start Uhrzeit
+     * @param _endUhrzeit Die End Uhrzeit
+     */
+    public Termin(Film _film, Saal _saal, LocalDateTime _startUhrzeit, LocalDateTime _endUhrzeit) {
+        this._film = _film;
+        this._saal = _saal;
+        this._startUhrzeit = _startUhrzeit;
+        this._endUhrzeit = _endUhrzeit;
+    }
 
     /**
      * Erhält die Start Uhrzeit des Termins
@@ -44,6 +59,5 @@ public class Termin {
      */
     public LocalDateTime get_endUhrzeit() {
         return _endUhrzeit;
-    }
-    
+    }    
 }

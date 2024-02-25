@@ -1,4 +1,4 @@
-package com.kinokarten;
+package com.kinokarten.Objects;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,26 +7,35 @@ import java.util.List;
  * Bildet den Saal ab
  */
 public class Saal {
-    private int _saalnummer;
+    private long _saalnummer;
+    private Kino _kino;
     private List<Termin> _termine;
     private List<Sitzplatz> _sitzplaetze;
 
     /**
      * Constructor für den Saal
      * @param _saalnummer Die Saalnummer
-     */
-    //Constructor
-    public Saal(int _saalnummer) {
+     */    
+    public Saal(Kino _kino, long _saalnummer) {
+        this._kino = _kino;
         this._saalnummer = _saalnummer;
         this._termine = new ArrayList<Termin>();
         this._sitzplaetze = new ArrayList<Sitzplatz>();
     }
 
     /**
+     * Erhält das Kino
+     * @return Gibt das Kino gerraus
+     */
+    public Kino get_kino() {
+        return _kino;
+    }    
+
+    /**
      * Erhält die Saalnummer
      * @return Gibt die Saalnummer herraus
      */
-    public int get_saalnummer() {
+    public long get_saalnummer() {
         return _saalnummer;
     }
     /**
@@ -43,5 +52,7 @@ public class Saal {
     public List<Sitzplatz> get_sitzplaetze() {
         return _sitzplaetze;
     }
-    
+
+
+
 }

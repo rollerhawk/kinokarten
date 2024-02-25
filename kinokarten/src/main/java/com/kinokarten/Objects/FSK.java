@@ -1,4 +1,4 @@
-package com.kinokarten;
+package com.kinokarten.Objects;
 /**
  * Enumertion für die Altersfreigabe (FSK)
  */
