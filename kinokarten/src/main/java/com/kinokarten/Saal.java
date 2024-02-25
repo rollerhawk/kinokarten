@@ -7,10 +7,6 @@ public class Saal {
     private int _saalnummer;
     private List<Termin> _termine;
     private List<Sitzplatz> _sitzplaetze;
-       
-    public Saal(){
-        
-    }
 
     //Constructor
     public Saal(int _saalnummer) {
