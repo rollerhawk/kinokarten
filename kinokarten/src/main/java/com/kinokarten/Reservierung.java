@@ -13,5 +13,17 @@ public class Reservierung {
         this._kunde = _kunde;
         this._sitzplaetze = new ArrayList<Sitzplatz>();
     }
+
+    public long get_reservierungsNr() {
+        return _reservierungsNr;
+    }
+
+    public Kunde get_kunde() {
+        return _kunde;
+    }
+
+    public List<Sitzplatz> get_sitzplaetze() {
+        return _sitzplaetze;
+    }   
     
 }
