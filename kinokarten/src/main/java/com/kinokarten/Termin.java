@@ -3,9 +3,11 @@ package com.kinokarten;
 import java.time.LocalDateTime;
 
 public class Termin {
-    public Film _film;
-    public Saal _saal;
-    private LocalDateTime _startUhrzeit;
+    private Film _film;
+    private Saal _saal;
+    private LocalDateTime _startUhrzeit;   
+    private LocalDateTime _endUhrzeit;
+
     public LocalDateTime get_startUhrzeit() {
         return _startUhrzeit;
     }
@@ -14,10 +16,16 @@ public class Termin {
         this._startUhrzeit = _startUhrzeit;
     }
 
-    private LocalDateTime _endUhrzeit;
-
     public Film getFilm() {  
         return _film;
+    }
+
+    public Saal get_saal() {
+        return _saal;
+    }
+
+    public LocalDateTime get_endUhrzeit() {
+        return _endUhrzeit;
     }
     
 }

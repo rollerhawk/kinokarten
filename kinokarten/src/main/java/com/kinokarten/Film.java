@@ -6,7 +6,7 @@ public class Film {
     private String _titel;
     private int _daurer;
     private FSK _altersBeschraenkung;
-    public  Termin get_Termin() {
+    public Termin get_Termin() {
         return _termin;
     }
 }
