@@ -5,7 +5,7 @@ package com.kinokarten.Objects;
 public class Film {
 
     private String _titel;
-    private int _daurer;
+    private int _dauer;
     private FSK _altersBeschraenkung;  
     /**
      * Constructor für den Film
@@ -15,7 +15,7 @@ public class Film {
      */
     public Film(String _titel, int _daurer, FSK _altersBeschraenkung) {
         this._titel = _titel;
-        this._daurer = _daurer;
+        this._dauer = _daurer;
         this._altersBeschraenkung = _altersBeschraenkung;
     }    
 
@@ -23,11 +23,16 @@ public class Film {
         return _titel;
     }
 
-    public int get_daurer() {
-        return _daurer;
+    public int get_dauer() {
+        return _dauer;
     }
 
     public FSK get_altersBeschraenkung() {
         return _altersBeschraenkung;
+    }
+
+    @Override
+    public String toString(){
+        return "Titel:" + this._titel+ " | " + "Dauer: "+this._dauer+ " Min" + " | " + "FSK: " + _altersBeschraenkung;
     }
 }

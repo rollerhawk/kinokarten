@@ -14,11 +14,11 @@ private CounterInterface _counter;
         this._counter = counter;
     }
 
-    public Saal Create(Kino kino){
+    public Saal Create(Kino kino, int _anzahlReihen, int _anzahlSitzeProReihe){
         //Neue eindeutige Saalnummer abholen
 
         long saalnummer = _counter.GetNextNr();
-        Saal saal = new Saal(kino,saalnummer);
+        Saal saal = new Saal(kino,saalnummer,_anzahlReihen,_anzahlSitzeProReihe);
 
         return saal;
     }
