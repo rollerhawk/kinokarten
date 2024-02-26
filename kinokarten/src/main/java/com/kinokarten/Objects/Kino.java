@@ -1,4 +1,4 @@
-package com.kinokarten;
+package com.kinokarten.Objects;
 
 import java.util.ArrayList;
 import java.util.List;

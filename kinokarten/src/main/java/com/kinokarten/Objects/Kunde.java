@@ -1,9 +1,10 @@
-package com.kinokarten;
+package com.kinokarten.Objects;
+
 /**
  * Bildet einen Kunden ab
  */
     public class Kunde {
-        private int _kundenNummer;
+        private long _kundenNummer;        
         private Adresse _adresse;
         private int _alter;
         private String _vorname;
@@ -18,31 +19,50 @@ package com.kinokarten;
          * @param _vorname Der Vorname 
          * @param _nachname Der Nachname
          */
-        public Kunde(int _kundenNummer, Adresse _adresse, int _alter, String _vorname, String _nachname) {
+        public Kunde(long _kundenNummer, Adresse _adresse, int _alter, String _vorname, String _nachname) {
             this._kundenNummer = _kundenNummer;
             this._adresse = _adresse;
             this._alter = _alter;
             this._vorname = _vorname;
             this._nachname = _nachname;
         }
-            /**
-             * Setzt die Reservierung 
-             * @param _reservierung 
-             * @return Zeigt an ob die Reservierung erfolgreich war.
-             */
-        public boolean set_Reservierung(Reservierung _reservierung){
+        /**
+         * Setzt die Reservierung 
+         * @param _reservierung 
+         * @return Zeigt an ob die Reservierung erfolgreich war.
+         */
+        public boolean set_reservierung(Reservierung _reservierung){
             boolean result = false;
             if(_reservierung != null) {
                 result = true;
                 this._reservierung = _reservierung;
             }            
             return result;
+        }        
+
+        public long get_kundenNummer() {
+            return _kundenNummer;
         }
+        public Adresse get_adresse() {
+            return _adresse;
+        }
+        public int get_alter() {
+            return _alter;
+        }
+        public String get_vorname() {
+            return _vorname;
+        }
+        
+        public String get_nachname() {
+            return _nachname;
+        }
+
         /**
          * Erhält die Reservierung 
          * @return Gibt die Reservierung aus
          */
-        public Reservierung get_Reservierung(){
+        public Reservierung get_reservierung() {
             return _reservierung;
         }
+        
     }

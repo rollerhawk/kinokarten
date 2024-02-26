@@ -1,11 +1,13 @@
-package com.kinokarten;
-
+package com.kinokarten.Objects;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.kinokarten.Interfaces.BuildInterface;
+
 /**
  * Bildet die Reservierung ab
  */
-public class Reservierung {
+public class Reservierung implements BuildInterface {
     private long _reservierungsNr;
     private Kunde _kunde;
     private Termin _termin;
@@ -27,40 +29,48 @@ public class Reservierung {
          * Zieht sich alle Attribute die die Reservierung benötigt
          */
     }    
-        /**
-         * Erhält den Saal zu dem Termin
-         */
+
+    /**
+     * Erhält den Saal zu dem Termin
+     */
     public Saal get_saal(){
         return this._termin.get_saal();
         
     }
- 
+    /**
+     * Erhält die Reservierungs Nummer
+     */
     public long get_reservierungsNr() {
         return _reservierungsNr;
-        /**
-         * Erhält die Reservierungs Nummer
-         */
+        
     }
 
-         /**
-         * Erhält den Kunden der reserviert hat
-         */
+    /**
+     * Erhält den Kunden der reserviert hat
+     */
     public Kunde get_kunde() {
         return _kunde;
         
     }
-        /**
-         * Erhält eine Liste an Sitzplätzen
-         */
+
+    /**
+     * Erhält eine Liste an Sitzplätzen
+     */
     public List<Sitzplatz> get_sitzplaetze() {
         return _sitzplaetze;
         
     }
-        /**
-         * Bekommt den Termin zur Reservierung
-         */
+
+    /**
+     * Bekommt den Termin zur Reservierung
+     */
     public Termin get_termin() {
         return _termin;
+        
+    }
+
+
+    public void Build() {
         
     }   
     
