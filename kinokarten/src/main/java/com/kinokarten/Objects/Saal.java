@@ -8,19 +8,29 @@ import java.util.List;
  */
 public class Saal {
     private long _saalnummer;
+    private int _anzahlReihen;
+    private int _anzahlSitzeProReihe;
     private Kino _kino;
     private List<Termin> _termine;
-    private List<Sitzplatz> _sitzplaetze;
 
     /**
      * Constructor für den Saal
      * @param _saalnummer Die Saalnummer
      */    
-    public Saal(Kino _kino, long _saalnummer) {
+    public Saal(Kino _kino, long _saalnummer, int _anzahlReihen, int _anzahlSitzeProReihe) {
         this._kino = _kino;
         this._saalnummer = _saalnummer;
+        this._anzahlReihen = _anzahlReihen;
+        this._anzahlSitzeProReihe = _anzahlSitzeProReihe;
         this._termine = new ArrayList<Termin>();
-        this._sitzplaetze = new ArrayList<Sitzplatz>();
+    }
+
+    public int get_anzahlSitzeProReihe() {
+        return _anzahlSitzeProReihe;
+    }
+
+    public int get_anzahlReihen() {
+        return _anzahlReihen;
     }
 
     /**
@@ -45,14 +55,4 @@ public class Saal {
     public List<Termin> get_termine() {
         return _termine;
     }
-    /**
-     * Erhält eine Liste der Sitzplätze des Saals ab
-     * @return Gibt uns die Sitzplätze herraus
-     */
-    public List<Sitzplatz> get_sitzplaetze() {
-        return _sitzplaetze;
-    }
-
-
-
 }

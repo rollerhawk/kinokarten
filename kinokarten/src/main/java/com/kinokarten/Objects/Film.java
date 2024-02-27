@@ -39,4 +39,9 @@ public class Film {
     public FSK get_altersBeschraenkung() {
         return _altersBeschraenkung;
     }
+
+    @Override
+    public String toString(){
+        return "Titel:" + this._titel+ " | " + "Dauer: "+this._dauer+ " Min" + " | " + "FSK: " + _altersBeschraenkung;
+    }
 }

@@ -1,8 +1,6 @@
 package com.kinokarten.Managers;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +17,6 @@ import com.kinokarten.Objects.Termin;
  */
 public class SaalManager {
     private Kino _kino;
-    private int _anzahlSaele;
     private Map<Long, Saal> _saele;
     private SaalFactory _saalFactory;
     /**
@@ -27,16 +24,10 @@ public class SaalManager {
      * @param _kino Das Kino 
      * @param _anzahlSaele Die Anzahl der Säle
      */
-    public SaalManager(Kino _kino, int _anzahlSaele) {
+    public SaalManager(Kino _kino) {
         this._kino = _kino;
-        this._anzahlSaele = _anzahlSaele;
         _saele = new HashMap<Long,Saal>();
         _saalFactory = new SaalFactory(new Counter());
-        
-        for (int i = 0; i < _anzahlSaele; i++) {
-            Saal neuerSaal = _saalFactory.Create(_kino);
-            _saele.put(neuerSaal.get_saalnummer(), neuerSaal);
-        }
     }
     /**
      * Erhält das Kino 
@@ -50,7 +41,7 @@ public class SaalManager {
      * @return Gibt die Anzahl der Säle wieder 
      */
     public int get_anzahlSaele() {
-        return _anzahlSaele;
+        return _saele.size();
     }
     /**
      * Auflistung der Säle 
@@ -65,7 +56,19 @@ public class SaalManager {
      * @return Rückgabe der Saalnummer
      */
     public Saal get_saal(long saalnummer){
-        return _saele.get(saalnummer);
+        Saal saal = _saele.get(saalnummer);
+        if(saal == null){
+            System.out.println("Saal mit Nr: " +saalnummer + " konnte nicht gefunden werden!");
+        }
+        return saal;
+    }
+
+
+    public boolean addNewSaal(int _anzahlReihen, int _anzahlSitzeProReihe){
+        boolean ergebnis = false;
+        Saal neuerSaal = _saalFactory.Create(_kino, _anzahlReihen, _anzahlSitzeProReihe);
+        _saele.put(neuerSaal.get_saalnummer(), neuerSaal);
+        return ergebnis;
     }
 
     /**
@@ -82,7 +85,7 @@ public class SaalManager {
         boolean terminDarfErstelltWerden = true;
         
         for (Termin terminVomSaal : termineVomSaal) {
-            if(terminVomSaal.get_startUhrzeit() == startZeit)
+            if(terminVomSaal.get_startUhrzeit().compareTo(startZeit) == 0)
             {
                 //17:30
                 //21:00

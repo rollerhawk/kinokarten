@@ -2,12 +2,10 @@ package com.kinokarten.Objects;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kinokarten.Interfaces.BuildInterface;
-
 /**
  * Bildet die Reservierung ab
  */
-public class Reservierung implements BuildInterface {
+public class Reservierung {
     private long _reservierungsNr;
     private Kunde _kunde;
     private Termin _termin;
@@ -68,10 +66,5 @@ public class Reservierung implements BuildInterface {
         return _termin;
         
     }
-
-
-    public void Build() {
-        
-    }   
     
 }

@@ -1,15 +1,22 @@
 package com.kinokarten.Objects;
 
 import java.time.LocalDateTime;
+
+import com.kinokarten.Managers.SitzplatzManager;
 /**
  * Bildet den Termin
  */
-public class Termin implements Comparable {
+public class Termin {
     private Film _film;
     private Saal _saal;
     private LocalDateTime _startUhrzeit;   
     private LocalDateTime _endUhrzeit;
+    private SitzplatzManager _sitzplatzManager;
 
+
+    public SitzplatzManager get_sitzplatzManager() {
+        return _sitzplatzManager;
+    }
 
     /**
      * Erstellt eine neue Instanz vom Termin
@@ -23,6 +30,7 @@ public class Termin implements Comparable {
         this._saal = _saal;
         this._startUhrzeit = _startUhrzeit;
         this._endUhrzeit = _endUhrzeit;
+        this._sitzplatzManager = new SitzplatzManager(_saal);
     }
 
     /**
@@ -59,5 +67,10 @@ public class Termin implements Comparable {
      */
     public LocalDateTime get_endUhrzeit() {
         return _endUhrzeit;
-    }    
+    }
+    
+    @Override
+    public String toString(){
+        return "Saal:" + _saal.get_saalnummer() + " | " + "Film: "+_film+ " | " + "Start: " + _startUhrzeit + " | " + "Ende: " + _endUhrzeit;
+    }
 }
