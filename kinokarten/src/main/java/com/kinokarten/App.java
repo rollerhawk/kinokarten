@@ -27,7 +27,7 @@ public class App
     public static void main( String[] args )
     {
         System.out.println( "Wilkommen in das Kino!" );
-        System.out.println( "Geben Sie bitte dem Kino einen Namen!" );
+        System.out.println( "Geben Sie bitte dem Kino einen Namen!" ); 
 
         String name = System.console().readLine();
         System.out.println( "Das Kino soll " + name + " heissen!" );        

@@ -5,7 +5,7 @@ import com.kinokarten.Objects.Kunde;
 import com.kinokarten.Objects.Reservierung;
 import com.kinokarten.Objects.Termin;
 /**
- * Erzeugt die Reservierung 
+ * Erzeugung der Reservierung 
  */
 public class ReservierungFactory {
 

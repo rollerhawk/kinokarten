@@ -6,7 +6,7 @@ import com.kinokarten.Objects.Film;
 import com.kinokarten.Objects.Saal;
 import com.kinokarten.Objects.Termin;
 /**
- * Erzeugt dem Termin
+ * Erzeugung des Termins
  */
 public class TerminFactory {
     public static Termin Create(Film film, Saal saal, LocalDateTime startZeit, LocalDateTime endZeit){

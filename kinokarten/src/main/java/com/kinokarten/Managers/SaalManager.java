@@ -13,7 +13,7 @@ import com.kinokarten.Objects.Kino;
 import com.kinokarten.Objects.Saal;
 import com.kinokarten.Objects.Termin;
 /**
- * Bildet die Logik vom Saal ab 
+ * Hier bildet sich die komplette Logik des Saals ab 
  */
 public class SaalManager {
     private Kino _kino;

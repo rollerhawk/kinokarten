@@ -39,20 +39,38 @@ package com.kinokarten.Objects;
             }            
             return result;
         }        
-
+        /**
+         * Erhält die Kundennummer
+         * @return Gibt die Kundennummer zurück
+         */
         public long get_kundenNummer() {
             return _kundenNummer;
         }
+        /**
+         * Erhält die Adresse des Kunden
+         * @return Rückgabe der Adresse des Kunden 
+         */
         public Adresse get_adresse() {
             return _adresse;
         }
+        /**
+         * Gibt das alter zurück
+         * @return Rückgabe des Alters vom Kunden
+         */
         public int get_alter() {
             return _alter;
         }
+        /**
+         * Gibt den Vornamen des Kunden 
+         * @return Rückgabe des Vornamens
+         */
         public String get_vorname() {
             return _vorname;
         }
-        
+        /**
+         * Gibt den Nachnamen zurück
+         * @return Rückgabe des Nachnamens 
+         */
         public String get_nachname() {
             return _nachname;
         }

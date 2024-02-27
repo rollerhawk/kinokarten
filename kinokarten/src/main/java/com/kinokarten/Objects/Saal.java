@@ -24,11 +24,17 @@ public class Saal {
         this._anzahlSitzeProReihe = _anzahlSitzeProReihe;
         this._termine = new ArrayList<Termin>();
     }
-
+    /**
+     * Bekommt die Anzahl der Sitze pro Reihe zurück
+     * @return Gibt die Anzahl zurück
+     */
     public int get_anzahlSitzeProReihe() {
         return _anzahlSitzeProReihe;
     }
-
+    /**
+     * Bekommt die Anzahl der Reihen zurück
+     * @return Rückgabe der Anzahl von Reihen
+     */
     public int get_anzahlReihen() {
         return _anzahlReihen;
     }
