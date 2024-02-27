@@ -1,6 +1,6 @@
 package com.kinokarten.Interfaces;
 /**
- * Erzeugung des 
+ * Erzeugung des Interfaces für den Counter
  */
 public interface CounterInterface {
     long GetNextNr();

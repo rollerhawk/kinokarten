@@ -59,7 +59,11 @@ public class SaalManager {
     public Map<Long, Saal> get_saele() {
         return _saele;
     }   
-
+    /**
+     * Rückgabe des Saals 
+     * @param saalnummer Die Nummer des Saals
+     * @return Rückgabe der Saalnummer
+     */
     public Saal get_saal(long saalnummer){
         return _saele.get(saalnummer);
     }
@@ -89,7 +93,7 @@ public class SaalManager {
         }
 
         if(terminDarfErstelltWerden){
-            LocalDateTime endZeit = startZeit.plusMinutes(film.get_daurer());
+            LocalDateTime endZeit = startZeit.plusMinutes(film.get_dauer());
             neuerTermin = TerminFactory.Create(film, saal, startZeit, endZeit);
             termineVomSaal.add(neuerTermin);
         }
