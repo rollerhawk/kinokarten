@@ -6,10 +6,16 @@ public class Counter implements CounterInterface {
 
     private long _counter;    
 
+    /**
+     * Constructor für den Counter
+     */
     public Counter() {
         this._counter = 0;
     }
 
+    /**
+     * Ausgabe des Counters 
+     */
     public long GetNextNr() {
         _counter++;
         return _counter;

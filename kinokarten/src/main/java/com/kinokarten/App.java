@@ -19,8 +19,7 @@ import com.kinokarten.Objects.Sitzplatz;
 import com.kinokarten.Objects.Termin;
 
 /**
- * Hello world!
- *
+ *  
  */ 
 public class App 
 {

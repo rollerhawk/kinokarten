@@ -63,7 +63,12 @@ public class SaalManager {
         return saal;
     }
 
-
+    /**
+     * Hinzufügung eines neuen Saals
+     * @param _anzahlReihen Die Angabe der Reihen
+     * @param _anzahlSitzeProReihe Die Angabe der Sitze pro Reihe
+     * @return Rückgabe der Konfiguration des Saals
+     */
     public boolean addNewSaal(int _anzahlReihen, int _anzahlSitzeProReihe){
         boolean ergebnis = false;
         Saal neuerSaal = _saalFactory.Create(_kino, _anzahlReihen, _anzahlSitzeProReihe);
