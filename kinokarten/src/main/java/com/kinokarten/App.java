@@ -98,7 +98,14 @@ public class App
                         String terminNrTextCase3 = System.console().readLine();
                         int terminNrCase3 = tryConvertStringToInt(terminNrTextCase3);
 
-                        //Hier prüfen, dass die TerminNr überhaupt gültig ist bitte!
+                        //Hier prüfen, dass die TerminNr überhaupt gültig ist
+                        if(terminNrCase3 > alleTermineCase3.size()){
+                            System.out.println("Index out of bounds!");
+                            abbruch = true;
+                            break;
+                        }
+
+                        
                         Termin terminCase3 = alleTermineCase3.get(terminNrCase3-1);     
 
                         if(terminCase3 == null){
@@ -114,8 +121,15 @@ public class App
                         String terminNrTextCase4 = System.console().readLine();
                         int terminNrCase4 = tryConvertStringToInt(terminNrTextCase4);
 
-                        //Hier prüfen, dass die TerminNr überhaupt gültig ist bitte!
-                        Termin terminCase4 = alleTermineCase4.get(terminNrCase4-1);
+                        //Hier prüfen, dass die TerminNr überhaupt gültig ist
+                        if(terminNrCase4 > alleTermineCase4.size()){
+                            System.out.println("Index out of bounds!");
+                            abbruch = true;
+                            break;
+                        }
+                        
+                        Termin terminCase4 = alleTermineCase4.get(terminNrCase4-1);                       
+
                         boolean stopSuche = false;
                         while(!stopSuche){
                             System.out.println("Wie viele Sitzplätze wollen Sie reservieren?");
