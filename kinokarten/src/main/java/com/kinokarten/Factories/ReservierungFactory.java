@@ -15,9 +15,15 @@ public class ReservierungFactory {
         this._counter = counter;
     }
 
+    
+    /** 
+     * @param kunde
+     * @param termin
+     * @return Reservierung
+     */
     public Reservierung Create(Kunde kunde, Termin termin){
         //Neue eindeutige Reservierungsnummer abholen
-        long nexteFreieNummer = _counter.GetNextNr();
+        long nexteFreieNummer = _counter.getNextNr();
         
         Reservierung reservierung = new Reservierung(nexteFreieNummer, kunde, termin);
         return reservierung;

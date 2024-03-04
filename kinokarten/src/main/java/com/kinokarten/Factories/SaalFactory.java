@@ -14,10 +14,17 @@ private CounterInterface _counter;
         this._counter = counter;
     }
 
+    
+    /** 
+     * @param kino
+     * @param _anzahlReihen
+     * @param _anzahlSitzeProReihe
+     * @return Saal
+     */
     public Saal Create(Kino kino, int _anzahlReihen, int _anzahlSitzeProReihe){
         
 
-        long saalnummer = _counter.GetNextNr();
+        long saalnummer = _counter.getNextNr();
         Saal saal = new Saal(kino,saalnummer,_anzahlReihen,_anzahlSitzeProReihe);
 
         return saal;

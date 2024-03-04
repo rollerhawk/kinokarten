@@ -40,6 +40,10 @@ public class Film {
         return _altersBeschraenkung;
     }
     
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString(){
         return "Titel:" + this._titel+ " | " + "Dauer: "+this._dauer+ " Min" + " | " + "FSK: " + _altersBeschraenkung;

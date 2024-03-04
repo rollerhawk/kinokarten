@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.kinokarten.Factories.FSKFactory;
+import com.kinokarten.Factories.KundeFactory;
+import com.kinokarten.Factories.ReservierungFactory;
 import com.kinokarten.Helpers.RunnableHelper;
 import com.kinokarten.Interfaces.KinoRunnable;
 import com.kinokarten.Managers.KinoManager;
@@ -13,6 +15,7 @@ import com.kinokarten.Objects.Adresse;
 import com.kinokarten.Objects.FSK;
 import com.kinokarten.Objects.Film;
 import com.kinokarten.Objects.Kino;
+import com.kinokarten.Objects.Kunde;
 import com.kinokarten.Objects.Reservierung;
 import com.kinokarten.Objects.Saal;
 import com.kinokarten.Objects.Sitzplatz;
@@ -23,6 +26,10 @@ import com.kinokarten.Objects.Termin;
  */ 
 public class App 
 {
+    
+    /** 
+     * @param args
+     */
     public static void main( String[] args )
     {
         System.out.println( "Wilkommen in das Kino!" );
@@ -76,12 +83,15 @@ public class App
                 int userInput = tryConvertStringToInt(userInpuString);
 
                 switch (userInput) {
+                    //Case 1 - Alle Filme anzeigen
                     case 1:                        
                         zeigeFilme(kinoManager);
                         break;
+                    //Case 2 - Alle Termine anzeigen
                     case 2:      
                         zeigeTermine(kinoManager);        
                         break;
+                    //Case 3 - Plätze reservieren
                     case 3:
                         System.out.println("Für welchen Film wollen Sie die Plätze anzeigen?");
                         List<Termin> alleTermineCase3 = zeigeTermine(kinoManager);
@@ -96,7 +106,8 @@ public class App
                         } else {
                             System.out.println(terminCase3.get_sitzplatzManager().getAnzeigePlaetze());
                         }
-                        break;                        
+                        break;      
+                    //Case 4 - Plätze reservieren
                     case 4:
                         System.out.println("Für welchen Film wollen Sie die Plätze reservieren?");
                         List<Termin> alleTermineCase4 = zeigeTermine(kinoManager);
@@ -120,8 +131,12 @@ public class App
                             } else {
                                 System.out.println("Sitzplaetze ferfügbar! Wollen Sie die Sitzplätze reservieren? Y/N");
                                 stopSuche = System.console().readLine().toUpperCase().equals("Y");
-                                //Hier ist einfach eine Permanente Reservierung ohne Kunden... vll fixen
-                                Reservierung reservierung = new Reservierung(1, null, terminCase4);
+                                
+                                //Erzeugung eines neuen Kunden                        
+                                Kunde neuerKunde = createKunde(kinoManager);
+
+                                //Erzeugung eines neuen Reservierung mit dem erstellten Kunden 
+                                Reservierung reservierung = kinoManager.get_reservierungFactory().Create(neuerKunde, terminCase4);
 
                                 if(stopSuche && sitzplatzManager.reserviereSitzplaetze(moeglicheSitzplaetze, reservierung)){
                                     System.out.println("Erfolgreich! Reservierung: " + reservierung);
@@ -136,12 +151,37 @@ public class App
                 }
                 return abbruch;
             }
+
+
         };
 
         RunnableHelper.runUntilCancelledByRunnable(mainRunnable, new Object[]{kinoManager});
         
     }
 
+    /**
+     * Erstellt einen neuen Kunden
+     * @return Instanz vom Kunde
+     */
+    private static Kunde createKunde(KinoManager kinoManager) {
+        System.out.println( "Wie heißen Sie?" ); 
+        System.out.println( "Name?" ); 
+        String nameKunde = System.console().readLine();
+        System.out.println( "Vorname?" ); 
+        String vornameKunde = System.console().readLine();
+
+        System.out.println( "Wie alt sind Sie?" ); 
+        String alterKundeString = System.console().readLine();
+
+        int alterKunde = tryConvertStringToInt(alterKundeString);                
+
+        return kinoManager.get_kundeFactory().Create(new Adresse("DE", "Köln", "52062", "UNI", "1"), alterKunde, vornameKunde, nameKunde);
+    }
+
+    /**
+     * Zeigt alle Filme mit toString Methode in der Console an
+     * @param kinoManager
+     */
     private static void zeigeFilme(KinoManager kinoManager){
         List<Film> filme = kinoManager.get_filmManager().get_filme();
         for (int i = 0; i < filme.size(); i++) {
@@ -149,6 +189,11 @@ public class App
         }                     
     }
 
+    /**
+     * Liefert alle Termine als Liste zurück und Zeigt sie mit toString Methode in der Console an
+     * @param kinoManager
+     * @return
+     */
     private static List<Termin> zeigeTermine(KinoManager kinoManager){
         int f = 0;
         List<Termin> alleTermine = new ArrayList<Termin>();
@@ -164,6 +209,10 @@ public class App
         return alleTermine;
     }
 
+    /**
+     * Erstellung eines neuen Saales durch ConsolenInput
+     * @param kinoManager
+     */
     private static void createSaal(KinoManager kinoManager){
         System.out.println( "Wie viele Reihen soll der Saal haben?" ); 
         String anzahlReihenText = System.console().readLine();
@@ -178,6 +227,10 @@ public class App
         kinoManager.addNewSaal(anzahlReihen, anzahlSitzeProReihe);
     }
 
+    /**
+     * Erstellung eines neuen Filmes durch ConsolenInput
+     * @param kinoManager
+     */
     private static void createFilm(KinoManager kinoManager){
         System.out.println( "Wie soll das Film heissen?" ); 
         String titel = System.console().readLine();
@@ -194,6 +247,11 @@ public class App
         kinoManager.addNewFilm(titel, dauer, fsk);
     }
 
+    /**
+     * Erstellung eines neuen Termines durch ConsolenInput
+     * @param kinoManager
+     * @param film
+     */
     private static void createTermin(KinoManager kinoManager, Film film){            
 
         KinoRunnable createTerminRunnable  = new KinoRunnable(){
@@ -253,6 +311,11 @@ public class App
         RunnableHelper.runUntilCancelledByRunnable(createTerminRunnable, new Object[]{kinoManager, film});
     }
 
+    /**
+     * Konvertiert String zum int
+     * @param text
+     * @return
+     */
     private static int tryConvertStringToInt(String text){
         int ergebnis = -1;
         try {
@@ -263,6 +326,10 @@ public class App
         return ergebnis;
     }
 
+    /**
+     * Erstellung einer neuen Adresse durch ConsolenInput
+     * @return
+     */
     private static Adresse adresseErstellen(){
         System.out.println( "Geben Sie bitte die Adresse des Kinos vor!" );
 

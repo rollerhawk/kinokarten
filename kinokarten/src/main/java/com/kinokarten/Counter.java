@@ -16,7 +16,7 @@ public class Counter implements CounterInterface {
     /**
      * Ausgabe des Counters 
      */
-    public long GetNextNr() {
+    public long getNextNr() {
         _counter++;
         return _counter;
     }    

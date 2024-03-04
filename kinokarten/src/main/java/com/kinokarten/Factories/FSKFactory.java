@@ -5,6 +5,11 @@ import com.kinokarten.Objects.FSK;
  * Erstellt die alters Beschränkungen und definiert sie 
  */
 public class FSKFactory {
+    
+    /** 
+     * @param fskZahl
+     * @return FSK
+     */
     public static FSK Create(int fskZahl){
         FSK ergebnisFSK = FSK.Ü0;
         if (fskZahl > 18) {

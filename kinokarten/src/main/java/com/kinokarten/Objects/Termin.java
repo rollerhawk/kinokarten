@@ -14,6 +14,10 @@ public class Termin {
     private SitzplatzManager _sitzplatzManager;
 
 
+    
+    /** 
+     * @return SitzplatzManager
+     */
     public SitzplatzManager get_sitzplatzManager() {
         return _sitzplatzManager;
     }

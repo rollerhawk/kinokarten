@@ -1,5 +1,8 @@
 package com.kinokarten.Managers;
 
+import com.kinokarten.Counter;
+import com.kinokarten.Factories.KundeFactory;
+import com.kinokarten.Factories.ReservierungFactory;
 import com.kinokarten.Objects.FSK;
 import com.kinokarten.Objects.Kino;
 /**
@@ -9,6 +12,8 @@ public class KinoManager {
     private Kino _kino;
     private SaalManager _saalManager;
     private FilmManager _filmManager;
+    private ReservierungFactory _reservierungFactory;
+    private KundeFactory _kundeFactory;
 
     /**
      * Rückgabe des Filmmanagers
@@ -34,6 +39,8 @@ public class KinoManager {
         this._kino = _kino;
         this._saalManager = new SaalManager(_kino);
         this._filmManager = new FilmManager();
+        this._kundeFactory = new KundeFactory(new Counter());
+        this._reservierungFactory = new ReservierungFactory(new Counter());
     }
 
     /**
@@ -54,6 +61,21 @@ public class KinoManager {
      */
     public void addNewFilm(String titel, int dauer, FSK fsk){
          _filmManager.addFilm(titel, dauer, fsk);
+    }
+    
+    /**
+     * Liefert die Instanz der ReservierungFactory
+     * @return
+     */
+    public ReservierungFactory get_reservierungFactory() {
+        return _reservierungFactory;
+    }
+    /**
+     * Liefert die Instanz der KundeFactory
+     * @return
+     */
+    public KundeFactory get_kundeFactory() {
+        return _kundeFactory;
     }
     
 }

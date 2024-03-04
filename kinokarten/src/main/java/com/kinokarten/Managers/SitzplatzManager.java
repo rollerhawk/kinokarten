@@ -101,7 +101,7 @@ public class SitzplatzManager {
                     break;
                 }
             }
-            if (moeglicheSitzplaetze.size() != anzahlSitzplaetze){
+            if ((moeglicheSitzplaetze.size() != anzahlSitzplaetze ) && moeglicheSitzplaetze.size() != 0){
                 plaetzeGefunden = false;
                 break;
             }
@@ -159,7 +159,6 @@ public class SitzplatzManager {
      * @param reservierung Die Reservierungen
      * @return True or false wert ob der Sitz frei ist
      */
-
     public boolean reserviereSitzplaetze(List<Sitzplatz> sitzplaetze, Reservierung reservierung){
         boolean ergebnis = false;
         for (Sitzplatz sitzplatz : sitzplaetze) {

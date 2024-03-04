@@ -66,5 +66,10 @@ public class Reservierung {
         return _termin;
         
     }
+
+    @Override
+    public String toString() {
+        return "Reservierungsnr.:" + get_reservierungsNr() +" | Kunde:" + get_kunde() + " | Termin:" + get_termin();
+    }
     
 }

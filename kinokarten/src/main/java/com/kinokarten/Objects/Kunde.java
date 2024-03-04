@@ -83,4 +83,8 @@ package com.kinokarten.Objects;
             return _reservierung;
         }
         
+        @Override
+        public String toString() {
+            return "Kundennr.:" + get_kundenNummer() + " | Name:" + get_nachname();
+        }
     }

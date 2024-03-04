@@ -13,8 +13,16 @@ public class KundeFactory {
         this._counter = counter;
     }
 
+    
+    /** 
+     * @param adresse
+     * @param alter
+     * @param vorname
+     * @param nachname
+     * @return Kunde
+     */
     public Kunde Create(Adresse adresse, int alter, String vorname, String nachname){
-        long kundenNummer = _counter.GetNextNr();
+        long kundenNummer = _counter.getNextNr();
         Kunde kunde = new Kunde(kundenNummer, adresse, alter, vorname, nachname);
 
         return kunde;
